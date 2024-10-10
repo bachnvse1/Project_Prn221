@@ -82,11 +82,11 @@
                      Grid.Row="1" Grid.Column="5" />
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Create" Width="100" Margin="5" Height="50" Click="CreateButton_Click"/>
-            <Button Content="Update" Width="100" Margin="5" Height="50" Click="UpdateButton_Click"/>
-            <Button Content="Delete" Width="100" Margin="5" Height="50" Click="DeleteButton_Click"/>
-            <Button Content="Refresh" Width="100" Margin="5" Height="50" Click="RefreshButton_Click"/>
-            <Button Name="viewButton" Content="View Other" Height="50" Width="100" Margin="5" Click="ViewButton_Click"/>
+            <Button Background="Green" Content="Create" Width="100" Margin="5" Height="50" Click="CreateButton_Click" Foreground="White"/>
+            <Button Background="Blue" Content="Update" Width="100" Margin="5" Height="50" Click="UpdateButton_Click" Foreground="White"/>
+            <Button Background="Red" Content="Delete" Width="100" Margin="5" Height="50" Click="DeleteButton_Click" Foreground="White"/>
+            <Button Background="Aqua" Content="Refresh" Width="100" Margin="5" Height="50" Click="RefreshButton_Click" Foreground="White"/>
+            <Button Background="Gray" Name="viewButton" Content="View Other" Height="50" Width="100" Margin="5" Click="ViewButton_Click" Foreground="White"/>
         </StackPanel>
 
         <Popup Name="viewPopup" PlacementTarget="{Binding ElementName=viewButton}" StaysOpen="False" Placement="Top">

@@ -1,18 +1,7 @@
 ﻿using SaleManagementLibrary.DataAccess;
 using SaleManagementLibrary.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace SaleManagement
 {
@@ -45,7 +34,7 @@ namespace SaleManagement
                 };
                 _memberRepository.Add(member);
                 loadMember();
-                MessageBox.Show($"{member.Email} inserted successfully.", "Insert car");
+                MessageBox.Show($"{member.Email} inserted successfully.", "Insert member");
             }
             catch (Exception ex)
             {
@@ -68,7 +57,7 @@ namespace SaleManagement
                 };
                 _memberRepository.Update(member);
                 loadMember();
-                MessageBox.Show($"{member.Email} updated successfully.", "Update car");
+                MessageBox.Show($"{member.Email} updated successfully.", "Update member");
             }
             catch (Exception ex)
             {
@@ -80,16 +69,19 @@ namespace SaleManagement
         {
             try
             {
-                Member member = _memberRepository.GetById(int.Parse(txtMemberID.Text));
-                _memberRepository.Delete(member.MemberId);
-                loadMember();
-                MessageBox.Show($"{member.Email} deleted successfully.", "Delete car");
+                    Member member = _memberRepository.GetById(int.Parse(txtMemberID.Text));
+                    _memberRepository.Delete(member.MemberId);
+                    loadMember();
+                    MessageBox.Show($"{member.Email} deleted successfully.", "Delete member");
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Delete car");
+                MessageBox.Show(ex.Message, "Delete member");
             }
         }
+
+        
 
         private void ViewButton_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +123,7 @@ namespace SaleManagement
             loadMember();
         }
 
-        private void MemberListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void MemberListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (MemberListView.SelectedItem is Member selectedMember)
             {
@@ -146,6 +138,26 @@ namespace SaleManagement
             {
                 ClearInputs();
             }
-        }
+        }*/
+
+        /*MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this member?",
+                                          "Confirm Delete",
+                                          MessageBoxButton.YesNo,
+                                          MessageBoxImage.Warning);
+            
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    Member member = _memberRepository.GetById(int.Parse(txtMemberID.Text));
+        _memberRepository.Delete(member.MemberId);
+                    loadMember();
+        MessageBox.Show($"{member.Email} deleted successfully.", "Delete member");
+                }
+}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete member");
+            }*/
     }
 }
