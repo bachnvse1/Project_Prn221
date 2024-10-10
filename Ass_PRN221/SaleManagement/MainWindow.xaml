@@ -1,0 +1,99 @@
+﻿<Window x:Class="SaleManagement.MainWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        xmlns:local="clr-namespace:SaleManagement"  
+        mc:Ignorable="d"  
+        Title="MainWindow" Height="550" Width="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ListView để hiển thị danh sách member -->
+        <ListView x:Name="MemberListView" Grid.Row="0" Margin="10" Height="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberId}" Width="50"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="150"/>
+                    <GridViewColumn Header="Company Name" DisplayMemberBinding="{Binding CompanyName}" Width="150"/>
+                    <GridViewColumn Header="City" DisplayMemberBinding="{Binding City}" Width="100"/>
+                    <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}" Width="100"/>
+                    <GridViewColumn Header="Password" DisplayMemberBinding="{Binding Password}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="lbNameMember" Content="Member ID" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" />
+            <Label Name="lbEmail" Content="Email" Grid.Row="0" Grid.Column="1" Margin="100,5,5,5" />
+            <Label Name="lbCompanyName" Content="Company Name" Grid.Row="0" Grid.Column="2" Margin="100,5,5,5" />
+            <Label Name="lbCity" Content="City" Grid.Row="0" Grid.Column="3" Margin="100,5,5,5" />
+            <Label Name="lbCountry" Content="Country" Grid.Row="0" Grid.Column="4" Margin="100,5,5,5" />
+            <Label Name="lbPassword" Content="Password" Grid.Row="0" Grid.Column="5" Margin="100,5,5,5" />
+
+            <TextBox Name="txtMemberID" Height="25" HorizontalAlignment="Stretch"   
+                     Text="{Binding Path=MemberId, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="0" />
+
+            <TextBox Name="txtEmail" Margin="100,0,0,0" Height="25" HorizontalAlignment="Stretch" Width="100"
+                     Text="{Binding Path=Email, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="1"/>
+
+            <TextBox Name="txtCompanyName" Margin="100,0,0,0" Height="25" HorizontalAlignment="Stretch" Width="100"
+                     Text="{Binding Path=CompanyName, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="2" />
+
+            <TextBox Name="txtCity" Margin="100,0,0,0" Height="25" HorizontalAlignment="Stretch" Width="100"
+                     Text="{Binding Path=City, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="3" />
+            <TextBox Name="txtCountry" Margin="100,0,0,0" Height="25" HorizontalAlignment="Stretch" Width="100"
+                     Text="{Binding Path=Country, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="4" />
+            <TextBox Name="txtPassword" Margin="100,0,0,0" Height="25" HorizontalAlignment="Stretch" Width="100"
+                     Text="{Binding Path=Password, Mode=OneWay}"   
+                     DataContext="{Binding ElementName=MemberListView, Path=SelectedItem}"   
+                     Grid.Row="1" Grid.Column="5" />
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Create" Width="100" Margin="5" Height="50" Click="CreateButton_Click"/>
+            <Button Content="Update" Width="100" Margin="5" Height="50" Click="UpdateButton_Click"/>
+            <Button Content="Delete" Width="100" Margin="5" Height="50" Click="DeleteButton_Click"/>
+            <Button Content="Refresh" Width="100" Margin="5" Height="50" Click="RefreshButton_Click"/>
+            <Button Name="viewButton" Content="View Other" Height="50" Width="100" Margin="5" Click="ViewButton_Click"/>
+        </StackPanel>
+
+        <Popup Name="viewPopup" PlacementTarget="{Binding ElementName=viewButton}" StaysOpen="False" Placement="Top">
+            <StackPanel Background="White" Width="120">
+                <Button Content="View Order" Width="100" Margin="5" Click="ViewOrder_Click" />
+                <Button Content="View Product" Width="100" Margin="5" Click="ViewProduct_CLick"/>
+            </StackPanel>
+        </Popup>
+    </Grid>
+</Window>

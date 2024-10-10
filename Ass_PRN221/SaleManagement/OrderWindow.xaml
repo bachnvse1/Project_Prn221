@@ -1,0 +1,100 @@
+﻿<Window x:Class="SaleManagement.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaleManagement"
+        mc:Ignorable="d"
+        Title="OrderWindow" Height="770" Width="1400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ListView cho Orders -->
+        <ListView Name="OrderListView" Grid.Column="0" Margin="10" VerticalAlignment="Top" Height="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Order ID" DisplayMemberBinding="{Binding OrderId}" Width="100"/>
+                    <GridViewColumn Header="Member ID" DisplayMemberBinding="{Binding MemberId}" Width="100"/>
+                    <GridViewColumn Header="Order Date" DisplayMemberBinding="{Binding OrderDate}" Width="120"/>
+                    <GridViewColumn Header="Required Date" DisplayMemberBinding="{Binding RequiredDate}" Width="120"/>
+                    <GridViewColumn Header="Shipped Date" DisplayMemberBinding="{Binding ShippedDate}" Width="120"/>
+                    <GridViewColumn Header="Freight" DisplayMemberBinding="{Binding Freight}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- ListView cho Order Details -->
+        <ListView Name="OrderDetailListView" Grid.Column="1" Margin="10" VerticalAlignment="Top" Height="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Order ID" DisplayMemberBinding="{Binding OrderId}" Width="100"/>
+                    <GridViewColumn Header="Product ID" DisplayMemberBinding="{Binding ProductId}" Width="100"/>
+                    <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="100"/>
+                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="100"/>
+                    <GridViewColumn Header="Discount" DisplayMemberBinding="{Binding Discount}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Khu vực nhập thông tin cho Orders -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Top">
+            <Label Content="Order ID:"/>
+            <TextBox Name="txtOrderId" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Member ID:"/>
+            <TextBox Name="txtMemberId" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Order Date:"/>
+            <TextBox Name="txtOrderDate" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Required Date:"/>
+            <TextBox Name="txtRequiredDate" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Shipped Date:"/>
+            <TextBox Name="txtShippedDate" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Freight:"/>
+            <TextBox Name="txtFreight" Height="25" Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <!-- Khu vực nhập thông tin cho Order Details -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Top">
+            <Label Content="Order ID:"/>
+            <TextBox Name="txtDetailOrderId" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Product ID:"/>
+            <TextBox Name="txtProductId" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Unit Price:"/>
+            <TextBox Name="txtUnitPrice" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Quantity:"/>
+            <TextBox Name="txtQuantity" Height="25" Margin="0,0,0,10"/>
+            <Label Content="Discount:"/>
+            <TextBox Name="txtDiscount" Height="25" Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <!-- Nút CRUD cho Orders -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Margin="10">
+            <Button Content="Add Order" Click="AddOrderButton_Click" Margin="5"/>
+            <Button Content="Update Order" Click="UpdateOrderButton_Click" Margin="5"/>
+            <Button Content="Delete Order" Click="DeleteOrderButton_Click" Margin="5"/>
+        </StackPanel>
+
+        <!-- Nút CRUD cho Order Details -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" Margin="10">
+            <Button Content="Add Order Detail" Click="AddOrderDetailButton_Click" Margin="5"/>
+            <Button Content="Update Order Detail" Click="UpdateOrderDetailButton_Click" Margin="5"/>
+            <Button Content="Delete Order Detail" Click="DeleteOrderDetailButton_Click" Margin="5"/>
+        </StackPanel>
+
+        <!-- Nút trở về Home -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="5" Margin="0,10,0,10">
+            <Button Content="Home" Click="HomeButton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100"/>
+        </StackPanel>
+    </Grid>
+</Window>
