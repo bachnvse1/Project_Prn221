@@ -42,40 +42,40 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Content="Product ID" Grid.Row="0" Grid.Column="0" Margin="5" />
-            <Label Content="Category ID" Grid.Row="0" Grid.Column="1" Margin="5" />
-            <Label Content="Product Name" Grid.Row="0" Grid.Column="2" Margin="5" />
-            <Label Content="Weight" Grid.Row="0" Grid.Column="3" Margin="5" />
-            <Label Content="Unit Price" Grid.Row="0" Grid.Column="4" Margin="5" />
-            <Label Content="Units In Stock" Grid.Row="0" Grid.Column="5" Margin="5" />
+            <Label Content="Product ID" Grid.Row="0" Grid.Column="0" Margin="50, 5" />
+            <Label Content="Category ID" Grid.Row="0" Grid.Column="1"  Margin="50, 5"  />
+            <Label Content="Product Name" Grid.Row="0" Grid.Column="2"  Margin="50, 5"  />
+            <Label Content="Weight" Grid.Row="0" Grid.Column="3"  Margin="50, 5"  />
+            <Label Content="Unit Price" Grid.Row="0" Grid.Column="4"  Margin="50, 5"  />
+            <Label Content="Units In Stock" Grid.Row="0" Grid.Column="5" Margin="50, 5"  />
 
-            <TextBox Name="txtProductId" Height="25" Grid.Row="1" Grid.Column="0" Margin="5" 
+            <TextBox Name="txtProductId" Height="25" Grid.Row="1" Grid.Column="0" Margin="30, 5" 
          Text="{Binding Path=ProductId, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
-            <TextBox Name="txtCategoryId" Height="25" Grid.Row="1" Grid.Column="1" Margin="5" 
+            <TextBox Name="txtCategoryId" Height="25" Grid.Row="1" Grid.Column="1" Margin="30, 5" 
          Text="{Binding Path=CategoryId, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
-            <TextBox Name="txtProductName" Height="25" Grid.Row="1" Grid.Column="2" Margin="5" 
+            <TextBox Name="txtProductName" Height="25" Grid.Row="1" Grid.Column="2" Margin="30, 5"  
          Text="{Binding Path=ProductName, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
-            <TextBox Name="txtWeight" Height="25" Grid.Row="1" Grid.Column="3" Margin="5" 
+            <TextBox Name="txtWeight" Height="25" Grid.Row="1" Grid.Column="3" Margin="30, 5" 
          Text="{Binding Path=Weight, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
-            <TextBox Name="txtUnitPrice" Height="25" Grid.Row="1" Grid.Column="4" Margin="5" 
+            <TextBox Name="txtUnitPrice" Height="25" Grid.Row="1" Grid.Column="4" Margin="30, 5" 
          Text="{Binding Path=UnitPrice, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
-            <TextBox Name="txtUnitsInStock" Height="25" Grid.Row="1" Grid.Column="5" Margin="5" 
+            <TextBox Name="txtUnitsInStock" Height="25" Grid.Row="1" Grid.Column="5" Margin="30, 5" 
          Text="{Binding Path=UnitsInStock, Mode=OneWay}" 
          DataContext="{Binding ElementName=ProductListView, Path=SelectedItem}" />
 
         </Grid>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="285,10,0,10">
             <Button Content="Create" Width="100" Margin="5" Height="50" Click="CreateButton_Click"/>
             <Button Content="Update" Width="100" Margin="5" Height="50" Click="UpdateButton_Click"/>
             <Button Content="Delete" Width="100" Margin="5" Height="50" Click="DeleteButton_Click"/>
